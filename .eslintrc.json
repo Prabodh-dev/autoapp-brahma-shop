@@ -6,16 +6,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json"]
   },
-  "env": {
-    "browser": true,
-    "node": true,
-    "es2021": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+  "ignorePatterns": ["node_modules/", ".next/", "out/"]
 }

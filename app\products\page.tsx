@@ -19,7 +19,7 @@ export default function Page() {
       },
     },
     {
-      id: 'product-grid',
+      id: 'product-list',
       kind: 'custom',
       details: {
         headline: '',
