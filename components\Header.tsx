@@ -1,33 +1,24 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import projectSpec from '../project.json';
+import { routes } from '../data/routes'; // Assuming routes are exported from here
 
-interface Route {
-  path: string;
-  title: string;
+interface HeaderProps {
+  appName: string;
 }
 
-const Header: React.FC = () => {
+export default function Header({ appName }: HeaderProps) {
   const router = useRouter();
-  const routes: Route[] = projectSpec.routes.map((route) => ({
-    path: route.path,
-    title: route.title,
-  }));
 
   return (
-    <header className="bg-gray-800 text-white py-4 px-6">
-      <nav className="container mx-auto flex justify-between items-center">
-        <div>
-          <Link href="/" className="text-2xl font-bold">
-            {projectSpec.appName}
-          </Link>
-        </div>
+    <header className="bg-gray-100 shadow-md">
+      <nav className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <div className="text-xl font-bold text-gray-800">{appName}</div>
         <ul className="flex space-x-6">
           {routes.map((route) => (
             <li key={route.path}>
               <Link
                 href={route.path}
-                className={`text-lg hover:underline ${
+                className={`text-gray-600 hover:text-blue-500 ${
                   router.pathname === route.path ? 'font-bold' : ''
                 }`}
               >
@@ -42,6 +33,4 @@ const Header: React.FC = () => {
       </nav>
     </header>
   );
-};
-
-export default Header;
+}

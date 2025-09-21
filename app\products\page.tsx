@@ -1,11 +1,5 @@
-import { MetadataRoute } from 'next/server';
-import ProductCard from './components/ProductCard';
-import ProductList from './components/ProductList';
-
-export const metadata: MetadataRoute = {
-  title: 'Products',
-  description: 'Showcase of 8 featured products.',
-};
+import ProductCard from '@/components/ProductCard';
+import ProductList from '@/components/ProductList';
 
 type Product = {
   title: string;
@@ -72,11 +66,9 @@ export default function Page() {
         <h1 className="text-4xl font-bold mb-4">Featured Products</h1>
         <p className="text-lg mb-4">Explore our top 8 selections.</p>
       </section>
-
       <section id="product-list-section" className="mb-8">
         <ProductList products={products} />
       </section>
-
       <section id="cta-section" className="bg-gray-100 p-8 rounded-lg">
         <h2 className="text-2xl font-bold mb-4">Ready to learn more?</h2>
         <p className="text-lg mb-4">Contact us today!</p>

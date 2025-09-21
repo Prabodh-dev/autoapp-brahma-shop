@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next/server';
 import { Metadata } from 'next';
 
-import projectSpec from './project-spec.json';
+import projectSpec from './project.json';
 
 export const metadata: Metadata = {
   title: projectSpec.appName,
