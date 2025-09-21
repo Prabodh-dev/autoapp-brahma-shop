@@ -8,6 +8,4 @@ npm i
 npm run dev
 
 ## Routes
-- / — Home
-
 - /products — Products
