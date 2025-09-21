@@ -107,17 +107,6 @@ export default function Page() {
           }
         ],
         "description": "A hero section component with headline and optional subheadline."
-      },
-      {
-        "name": "ProductGrid",
-        "props": [
-          {
-            "name": "products",
-            "type": "Array<ProductCardProps>",
-            "optional": false
-          }
-        ],
-        "description": "Displays a grid of ProductCards."
       }
     ],
     "theme": {
@@ -136,26 +125,20 @@ export default function Page() {
   );
 
   const ProductCard = ({ title, body }: { title: string; body: string }) => (
-    <div className="bg-white shadow-md rounded-lg p-6 m-4">
+    <div className="bg-white rounded-lg shadow-md p-6 m-4">
       <h2 className="text-xl font-bold mb-2">{title}</h2>
       <p>{body}</p>
     </div>
   );
 
-  const ProductGrid = ({ products }: { products: { title: string; body: string }[] }) => (
-    <section className="py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.title} title={product.title} body={product.body} />
-        ))}
-      </div>
-    </section>
-  );
-
   return (
-    <main>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <HeroSection headline={projectSpec.routes[0].sections[0].details.headline} subheadline={projectSpec.routes[0].sections[0].details.subheadline} />
-      <ProductGrid products={projectSpec.routes[0].sections[1].details.items} />
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-8">
+        {projectSpec.routes[0].sections[1].details.items.map((item) => (
+          <ProductCard key={item.title} title={item.title} body={item.body} />
+        ))}
+      </section>
     </main>
   );
 }
