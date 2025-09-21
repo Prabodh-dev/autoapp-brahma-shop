@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
-const Footer = () => {
+type FooterProps = {};
+
+export default function Footer({}: FooterProps) {
   return (
     <footer className="bg-gray-100 py-8">
       <div className="container mx-auto text-center">
@@ -21,6 +23,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
